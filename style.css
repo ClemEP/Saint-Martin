@@ -1,0 +1,302 @@
+body{
+  margin:0;
+  padding: 0;
+  font-size: 25px;
+  font-family: Source-Sans-Variable;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: 0 0 0 50;
+  background-size:500% 500%;
+}
+
+#menu{
+  background-image: url("../Saint-Martin/data/symbole/Symbole_reseaux_Plan de travail 1.svg");
+  display: inline-block;
+  vertical-align: middle;
+  background-position: center;
+  margin-right: 5px;
+  background-size:150% 150%;
+}
+
+#gobokit{
+  width: 80px;
+  height: 30px;
+  background-image: url("../Saint-Martin/data/image/gobokit.jpg");
+  background-size:125%;
+  display: inline-block;
+  vertical-align: center;
+  background-position: center;
+}
+
+#titre-menu{
+  float: left;
+  text-align: center;
+}
+
+.reseauButton{
+  float: right;
+  margin-right: 10px;
+  outline: none;
+  
+}
+
+.reseau{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+#ln{
+  background-image: url("../Saint-Martin/data/symbole/Symbole_reseaux-02.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:150% 150%;
+}
+
+#watsapp{
+  background-image: url("../Saint-Martin/data/symbole/Symbole_reseaux-04.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:150% 150%;
+}
+
+#mail{
+  background-image: url("../Saint-Martin/data/symbole/Symbole_reseaux-03.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:150% 150%;
+}
+
+
+#header{
+  left: 0;
+  height: 40px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0;
+  z-index: 3;
+  font-size:2rem;
+  font-family: impact,sans-serif,Arial,Helvetica;
+  font-style: bold;
+  color: white;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  background-color: #9B7750;
+  vertical-align: center;
+  text-align: center;
+  position: relative;
+}
+
+h1 img{
+  margin-right: 10px;
+  width: 40px;
+}
+
+#containeur {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.centered-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*testt*/
+/* ne pas afficher le bouton */
+#toggleButton {
+  display: none;
+}
+
+#sidePanel {
+  width: 500px;
+  height: 100vh;
+  padding-left: 20px;
+  z-index: 2; /* Définissez un z-index inférieur à celui de l'en-tête */
+  position: fixed;
+  left:0;
+  top: 0;
+  background-image: url("../Saint-Martin/data/image/fond/fond.jpg") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: 0 0 0 50;
+  background-size:500% 500%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 1100px) {
+
+#mymap {
+  height: 50vh;
+  width: 100%;
+  top: 45px;
+  z-index: 0;
+}
+
+#sidePanel {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -120%; /* Le panneau est initialement masqué en dehors de l'écran */
+  transition: left 0.3s ease-in-out; /* Remplacer "right" par "left" pour la transition */
+  background-image: url("../Saint-Martin/data/image/fond/fond.jpg") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: 0 0 0 50;
+  background-size:500% 500%;
+  }
+
+  #sidePanel.active {
+    left: 0; /* Le panneau apparaît lorsque la classe "active" est ajoutée */
+  }
+
+  /*afficher le bouton du panel*/
+  #toggleButton {
+    display: block;
+    position: fixed;
+    z-index: 999; /* Assurez-vous que le bouton est au-dessus du panneau */
+  }
+}
+
+h2{
+  margin: auto;
+  font-size: 2rem;
+  color: #9B7750;
+  align-items: flex-end;
+  display: flex;
+  font-family: impact,sans-serif,Arial,Helvetica;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%; 
+}
+
+h2 img{
+  margin-right: 20px;
+  width: 100px;
+  margin-bottom: 0;
+}
+
+#contenu{
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  width: 90%;
+  line-height: 1.5;
+}
+
+#mymap{
+  position: fixed;
+  top: 45px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+
+#layers{
+  height: 85vh;
+  position: absolute;
+  z-index: 9999;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 530px;
+  padding-top: 45px;
+}
+
+/**/
+/*Les bouttons <3 (remettre bouttons*/ 
+.reseau{
+  background-color: aliceblue;
+  text-decoration: none;
+  border-color: #9B7750;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+
+.svg-icon {
+  fill: red;
+}
+
+
+/*bouton plage test */
+#plage{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  overflow: hidden;
+  fill: yellow;
+}
+
+.layer-button{
+  margin-bottom: 25px;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  overflow: hidden;
+  fill: yellow;
+}
+
+/* A sup 
+pour mettre le texte du côté gauche des boutons lors d'un mouseover
+
+.layer-button::after{
+  display: inline-block;
+  text-align: center;
+  content: attr(data-text);
+  position : absolute;
+  top: 50%;  centrer le texte verticalement 
+  left: 35px; déplacer la bulle de 30px
+  background-color: #9B7750;
+  color: aliceblue;
+  padding: 5px 10px;  ajuster la taille de la zone de texte 
+  margin: -10px -10px; /* ajouter une marge autour du texte pour le fond 
+  border-radius: 10px 10px 10px 0;  ajouter un peu de bordure arrondie au fond 
+  width: 100%;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s easy-in-out;
+  transform: translate(0, -100%); centrer le texte horizontalement 
+  white-space: nowrap;  empêcher le texte de se diviser en plusieurs lignes 
+  width: fit-content;  ajuster la largeur du fond en fonction de la largeur du texte 
+}*/
+
+.layer-button:hover::after{
+  visibility: visible;
+}
+
+button:hover{
+  border-color: aliceblue;
+}
+
+/*Pour afficher le texte lors du mouseover*/
+
+.stylePopup .leaflet-popup-content-wrapper,.stylePopup .leaflet-popup-tip {
+  background-image: url("../Saint-Martin/data/image/fond/fond.jpg") ;
+  background-repeat: repeat;
+  background-position: center;
+  background-size:500% 500%;
+}

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<title>Carte SXM</title>
+
+    <!---- link between css file  -->
+    <link rel="stylesheet" href="style.css">
+
+    <!---- link between leaflet package -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  
+    <!---- link between D3JS  package -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  
+    <script src="../Saint-Martin/leaflet/plugin/leaflet.ajax.min.js"></script>
+
+    <script src="../Saint-Martin/data/geojson/gastronomie.geojson" type="text/javascript"></script>
+    <script src="../Saint-Martin/data/geojson/plage.geojson" type="text/javascript"></script>
+    <script src="../Saint-Martin/data/geojson/aquatique.geojson" type="text/javascript"></script>
+    <script src="../Saint-Martin/data/geojson/terrestre.geojson" type="text/javascript"></script>
+    <script src="../Saint-Martin/data/geojson/insolite.geojson" type="text/javascript"></script>
+
+  </head>
+
+  <!--Corps du document -->
+  <body>
+
+    <header id="header"> 
+      <titre id="titre-menu"> 
+        <a href="https://gobokit.com/" target="_blank">
+          <div id="gobokit"></div>
+        </a>
+        <!--<button id ="menu" ></button>-->
+        Saint-Martin </titre>
+
+      <div class ="reseauButton">
+
+        <a href="https://www.linkedin.com/in/cl%C3%A9mence-ehrhart-108616125/" target="_blank">
+          <button class="reseau" id="ln"></button>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=+33659036701" target="_blank">
+          <button class="reseau" id="watsapp"></button>
+        </a>
+        <button class="reseau" id="mail" onclick="window.location.href = 'mailto:clemence.pignon.h@gmail.com';"></button>
+      
+      </div>
+    </header>
+
+
+
+    <div id ="containeur">
+
+      <!--premiere colonne -->
+            <button id="toggleButton">Cliquez ici</button>
+
+            <div id="sidePanel">
+              <div class="centered-content">
+                
+                <h2 >
+                  <img id ="dessin" src="../Saint-Martin/data/Palmier_transparent.png" >
+                  <div id ="titre">
+                    L'île 
+                  </div>
+                </h2>
+
+                <div id="contenu">
+                   Saint-Martin est une petite île située au nord des Caraïbes où il fait bon vivre. Séparée depuis 1648 en deux parties, Française et Hollandaise, elle a connu plusieurs vagues de migrations et compte aujourd’hui 150 nationalités. On y parle principalement l’anglais, le français, l’espagnol et le créole. Cette mixité la rend unique et lui doit le surnom de “Friendly Island”. Le climat alterne entre saison cyclonique de juin à novembre, et saison sèche de décembre à mai.             </div>
+                </div>
+              </div>
+            </div>
+            
+      <!-- La carte  -->
+
+      <div id="mymap">
+        
+        <div id ="layers">
+
+          <button 
+             class="layer-button" id ="plage" data-text="Les plages" data-categorie ="plage"  data-titre="Plages" 
+             data-contenu="L'île est réputée pour ses magnifiques plages de sables blancs et ses eaux turquoise qui promettent quelques bonnes sessions bronzette ou parties de beach-volley. Certaines espèces sauvages comme les tortues marines s’y rendent pour y pondre leurs œufs. Malheureusement, ce paysage idyllique se voit entaché par les échouages de déchets ou de sargasses, des algues brunes venues d’Amérique du Sud et d’Afrique." 
+             image = "../Saint-Martin/data/image/dessin-titre/plage.png">
+             <img src="../Saint-Martin/data/symbole/Symbole_reseaux-08.svg">
+            </button>
+        
+          <button 
+             class="layer-button" id ="gastronomie" data-text="Gastronomie" data-categorie="gastronomie"data-titre="Gastronomie" 
+             data-contenu="La réputation de Saint-Martin n’est plus à faire en matière de “bien-manger”. La destination se positionnerait même comme la capitale de la gastronomie dans la Caraïbe. Que vous soyez adepte d’une cuisine gastronomique et raffinée ou de plats typiquement locaux aux saveurs antillaises ou haïtiennes, il y en aura pour tous les goûts et pour tous les budgets. Et pas la peine d’aller bien loin, on trouve toujours un lolo pas loin. "
+             image = "../Saint-Martin/data/image/dessin-titre/gastronomie.png">
+             <img src="../Saint-Martin/data/symbole/Symbole_reseaux-05.svg">
+           </button>
+        
+          <button class="layer-button" id="aquatique" data-text="Activités aquatiques" data-categorie="aquatique" data-titre="Activités Aquatique" 
+             data-contenu="Qui dit île, dit activités nautiques. C'est même l'un des principaux atouts de cette destination. Au programme, des sorties en bateau pour se rendre sur l’île de Tintamarre ou l’îlet Pinel, aller à la rencontre des baleines à bosse avec le whales watching, prendre quelques cours de surf ou de planche à voile, s'offrir un baptême de plongée, découvrir les petits fonds marins en mode snorkeling. Vous devriez trouver votre bonheur." 
+             image = "../Saint-Martin/data/image/dessin-titre/aquatique.png">
+             <img src="../Saint-Martin/data/symbole/Symbole_reseaux-09.svg">
+           </button>
+        
+          <button class="layer-button" id="terrestre" data-text="Activités terrestres" data-categorie="terrestre" data-titre="Randonnées" 
+             data-contenu="Malgré sa petite taille, Saint-Martin est traversée par de multiples sentiers de randonnées nous emmenant le long de la côte ou tout en haut du Pic Paradis (culminant à 424m). Un bon nombre de ces chemins traversent des propriétés privées, il est donc préférable de se renseigner en amont sur l'itinéraire ou d’être accompagné par des connaisseurs pour être sûr de trouver son chemin. " 
+             image = "../Saint-Martin/data/image/dessin-titre/rando.png">
+             <img src="../Saint-Martin/data/symbole/Symbole_reseaux-07.svg">
+           </button>
+        
+          <button class="layer-button" id="insolite" data-text="Endroits Atypiques" data-categorie="insolite" data-titre="Activités Insolites" 
+             data-contenu="Au détour d’une balade ou d’un tour en bateau, il n’est pas rare de découvrir des lieux surprenants et hors du temps. Des pierres gravées datant de l’arrivée des peuples premiers Arawaks, jusqu’aux hôtels abandonnés portant encore les marques des cyclones du passé, tous regorgent d’histoires et de secrets. Alors, prêts pour partir à l’aventure avec votre sac à dos et votre boussole ? " 
+             image = "../Saint-Martin/data/image/dessin-titre/insolite.png">
+             <img src="../Saint-Martin/data/symbole/Symbole_reseaux-06.svg">
+           </button> 
+        
+          <button class="layer-button" id="toutes" data-text="Toutes les catégories" data-categorie="toutes" data-titre=" L'île" 
+             data-contenu="Saint-Martin est une petite île située au nord des Caraïbes où il fait bon vivre. Séparée depuis 1648 en deux parties, Française et Hollandaise, elle a connu plusieurs vagues de migrations et compte aujourd’hui 150 nationalités. On y parle principalement l’anglais, le français, l’espagnol et le créole. Cette mixité la rend unique et lui doit le surnom de “Friendly Island”. Le climat alterne entre saison cyclonique de juin à novembre, et saison sèche de décembre à mai." 
+             image = "../Saint-Martin/data/image/dessin-titre/plage.png">
+           </button>
+           
+          </div>
+
+          <div id="map"></div>
+        </div>
+
+      </div>
+
+
+    
+ 
+    <!-- link between js (last in body)  -->
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+
+</html>
+
+
+
+<!-- bouton à rajouter 
+
+
+
+
+  -->
